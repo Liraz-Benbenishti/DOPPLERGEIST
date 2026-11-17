@@ -36,9 +36,6 @@ def test_occupied_ukraine_is_allowed(lat, lon):
         (31.5017, 34.4668),
     ],
 )
-def test_israel_and_gaza_are_restricted(lat, lon):
-    assert ResultRegionPolicy().restricted_region(lat, lon) == "israel_gaza"
-
 
 @pytest.mark.parametrize(
     "lat,lon",

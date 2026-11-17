@@ -22,7 +22,7 @@ def _boundaries():
         )
         regions = data["regions"]
         result = {}
-        for name in ("ukraine", "occupied_ukraine", "israel", "gaza"):
+        for name in ("ukraine", "occupied_ukraine", "gaza"):
             geometry = shape(regions[name])
             if geometry.is_empty:
                 raise ValueError(name)
@@ -60,8 +60,6 @@ class ResultRegionPolicy:
             return None
         if self.boundaries["ukraine"].covers(point):
             return "ukraine"
-        if self.boundaries["israel"].covers(point) or self.boundaries["gaza"].covers(point):
-            return "israel_gaza"
         return None
 
 
